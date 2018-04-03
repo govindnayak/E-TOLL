@@ -1,0 +1,63 @@
+<div class="topnav">
+
+  <img style="margin-left: 40px; margin-top: 5px" src="images/1.png" height="60px" width="60px">
+  
+  <a ng-show="check()" href ng-click = "logout()"><br>LOGOUT</a>
+
+
+  <a style="margin-right: 750px; position: absolute" href="#/login">&nbsp;&nbsp;&nbsp;AN E-TOLL SYSTEM</a>
+
+</div>
+
+
+
+<div style="width: 100%;">
+   <div style="float:left; width: 50%">
+   	<h1>This is a page where <br>you can track your vehicle details!</h1> 
+   </div>
+   
+
+
+   <div style="float:right; background:transparent; width: 50%;">
+   	<form class="formarea" method="post" ng-submit="register()">
+
+
+        <h2>REGISTER</h2></br>
+        <label style="font-family: sans-serif"><b>First Name</b></label>
+        <input style="width: 80px" type="text" name="fname" ng-model="fname" required>
+
+        <label style="font-family: sans-serif"><b>Last Name</b></label>
+        <input style="width: 80px" type="text" name="lname" ng-model="lname" required>
+
+        <br>
+
+        <label style="font-family: sans-serif"><b>Username</b></label><br><br>
+        <input type="text" name="username" ng-model="username" required><br><br>
+
+        <label style="font-family: sans-serif"><b>Password</b></label><br><br>
+        <input type="password" name="password" ng-model="password" required><br><br>
+
+        <label style="font-family: sans-serif"><b>Age</b></label>
+        <input style="width: 50px" type="text" name="age" ng-model="age" required>
+
+        <label style="font-family: sans-serif"><b>Mobile</b></label>
+        <input style="width: 80px" type="password" name="mobile" ng-model="mobile" required><br><br>
+
+        <label style="font-family: sans-serif"><b>Driving License no.</b></label>
+        <input type="text" name="dlno" ng-model="dlno" required><br>
+
+        <label style="font-family: sans-serif"><b>ID Image</b></label>
+        <input type="file" name="pic">        
+
+        <div class="form-actions">
+            <button type="submit" class="loginbtn">SIGN UP</button>
+        </div>
+
+        <br>
+
+        Already a member?  <a href="#/login">Login</a>
+     </form>
+   </div>
+</div>
+	
+<div style="clear:both"></div>
