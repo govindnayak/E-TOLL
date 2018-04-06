@@ -1,13 +1,9 @@
-<div class="topnav">
-
+<div class="topnav" ng-controller="loginController">
   <img style="margin-left: 40px; margin-top: 5px" src="images/1.png" height="60px" width="60px">
-  
   <a style="margin-top: 5px" ng-show="check()" href ng-click = "logout()"><br>LOGOUT</a>
-
-
-  <a style="margin-right: 750px; position: absolute" href="#/login">&nbsp;&nbsp;&nbsp;AN E-TOLL SYSTEM</a>
-
+  <a style="margin-right: 750px; position: absolute" href="#/login">&nbsp;&nbsp;&nbsp;&nbsp;AN AUTOMATED E-TOLL SYSTEM</a>
 </div>
+
 
 <form class="container" ng-submit = 'get_transactions()' method="post">
   <div class="row">

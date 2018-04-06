@@ -2,4 +2,4 @@ create table user(fname varchar(20), lname varchar(20), username varchar(50) pri
 
 create table costs(start varchar(50), end varchar(50), cost float, primary key(start, end));
 
-create table transactions(username varchar(50) not null, regno varchar(50), start varchar(50), end varchar(50) default NULL, timestamp datetime, primary key(username, timestamp));
+create table transactions(username varchar(50) not null, regno varchar(50), start varchar(50), end varchar(50) default NULL, timestamp datetime,cost float default NULL, primary key(username, timestamp));

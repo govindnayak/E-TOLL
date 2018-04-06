@@ -9,7 +9,7 @@ var
 
 var sqlConfig = {
       user: 'root',
-      password: 'honor4c',
+      password: 'Chanakya@198',
       server: 'localhost',
       database: 'toll'
 }
@@ -91,13 +91,14 @@ app.post("/dashboard", function(req, res){
 
 app.post('/transactions', function(req, res){
   console.log(req.body.start, req.body.end,req.body.userid);
-  connection.query("select u.fname, u.lname, t.start, t.end from transactions t, user u where u.regno = t.regno and timestamp >= ? and timestamp <= ? and t.username = ?", [req.body.start, req.body.end , req.body.userid], function(err, data){
+  connection.query("select u.fname, u.lname, t.start, t.end, t.cost from transactions t, user u where u.regno = t.regno and timestamp >= ? and timestamp <= ? and t.username = ?", [req.body.start, req.body.end , req.body.userid], function(err, data){
     if(err)
     {
       console.log("Error while querying database :- " + err);
       res.send(err);
     }
     else {
+      console.log(data);
       res.send(data);
     }
   })
@@ -157,7 +158,7 @@ connection.query('select username from user where regno = ? ', [regno], function
       return res.send("no match found");
     }
     var userid = userids[0].username;
-  connection.query('select username, end from transactions where regno = ? and end is NULL', [regno], function(err, data){
+  connection.query('select username,start,end from transactions where regno = ? and end is NULL', [regno], function(err, data){
   if(err)
   {
     console.log("herer1");
@@ -167,7 +168,21 @@ connection.query('select username from user where regno = ? ', [regno], function
   else {
     if(data.length)
     {
-              connection.query('update transactions set end = ? where regno = ? and end is NULL', [loc, regno], function(err, data){
+
+      var s = data[0].start;
+      // var e = data[0].end;
+      connection.query('select cost from costs where start = ? and end = ?', [s , loc], function(err, data){
+          if(err)
+          {
+            console.log(err);
+            res.send(err);
+          }
+          else{
+            if(!data.length)
+                cost =  0;
+            else
+              {cost = data[0].cost;}
+              connection.query('update transactions set end = ?,cost = ? where regno = ? and end is NULL', [loc, cost, regno], function(err, data){
                 if(err){
                   console.log("herer3");
                   console.log(err);
@@ -178,6 +193,8 @@ connection.query('select username from user where regno = ? ', [regno], function
                   res.send('End Location added to reg no: ' + regno);
                 }
               });
+            }
+            });
 
     }
     else {

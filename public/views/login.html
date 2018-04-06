@@ -1,51 +1,96 @@
-<div class="topnav">
-
+<div class="topnav" ng-controller="loginController">
   <img style="margin-left: 40px; margin-top: 5px" src="images/1.png" height="60px" width="60px">
-  
-  <a ng-show="check()" href ng-click = "logout()"><br>LOGOUT</a>
-
-
-  <a style="margin-right: 750px; position: absolute" href="#/login">&nbsp;&nbsp;&nbsp;AN E-TOLL SYSTEM</a>
-
+  <a style="margin-top: 5px" ng-show="check()" href ng-click = "logout()"><br>LOGOUT</a>
+  <a style="margin-right: 750px; position: absolute" href="#/login">&nbsp;&nbsp;&nbsp;&nbsp;AN AUTOMATED E-TOLL SYSTEM</a>
 </div>
 
 
 
-<div class="back">
 
-   <div style="float:left; width: 50%">
-   		<h1>This is a page where <br>you can track your vehicle details!</h1> 
-   </div>
+<div class="container">
 
+  <div class="row" style="padding: 40px">
+   
+   <div class="col" style="float:left; width: 50%">
+      <div class="wrapper">
 
+        <br>
+        
+        <div class="row">
+          <div class="col-md-1-5">
+   		 <h4 style="color: #0080ff">About<h4><br>
+        Cross tolls like never before!
+          <br><h5>Now you can do:<br><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check"></i>&nbsp;&nbsp;Automatic toll payments<br><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check"></i>&nbsp;&nbsp;Track your toll history<br><br><br>
+          </div>
+         <div class="col-md-1-5">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/car.png" height="150px" width="150px">
+         </div>
 
-   <div style="float:right; background:transparent; width: 50%;">
-
-   	<form class="formarea" method="post" ng-submit="login()">
-
-      <br><br><br>
-
-        <h2><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;LOGIN</h2></br>
-        <label style="font-family: sans-serif"><b>Username</b></label><br><br>
-        <input type="text" name="username" ng-model="username" required><br><br>
-
-        <br><label style="font-family: sans-serif"><b>Password</b></label><br><br>
-        <input type="password" name="password" ng-model="password" required><br><br>
-
-        <br><br><br>
-
-        <div class="form-actions">
-            <button type="submit" class="loginbtn">LOG IN</button>
+        Don't wait at a toll-booth next time! 
         </div>
 
-        <br><br><br><br>
-
-        Still not a member?  <a href="#/register">Register</a>
-        <br><br><br>
-     </form>
+      </div>
    </div>
 
+
+
+   <div class="col" style="float:right; width: 50%;">
+
+
+      <div class="wrapper">
+        <form class="form-signin" method="post" ng-submit="login()">       
+          
+          <h5><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;LOGIN</h5></br>
+          <input type="text" class="form-control" name="username" placeholder="Username" ng-model="username" required="" autofocus="" /><br>
+          <input type="password" class="form-control" name="password" placeholder="Password" ng-model="password" required=""/>      
+          <br>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>  
+          <br> 
+          <label>Not registered yet?  <a href="#/register">Register</a></label>
+      
+        </form>
+      </div>
+
+   </div>
+  
+  </div>
 </div>
 
 	
 <div style="clear:both"></div>
+
+
+<style>
+  
+.wrapper {  
+  margin-top: 70px;
+  margin-bottom: 60px;
+}
+
+.form-signin {
+  max-width: 400px;
+  padding: 30px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);  
+
+  .form-signin-heading,
+  .checkbox {
+    margin-bottom: 30px;
+  }
+
+  .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    @include box-sizing(border-box);
+
+    &:focus {
+      z-index: 2;
+    }
+  }
+
+</style>

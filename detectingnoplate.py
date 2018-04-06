@@ -4,7 +4,7 @@ import time
 import numpy as np
 import requests, sys, json, urllib
 import os
-import Image 
+#import Image 
 server = 'http://127.0.0.1:3000'
 headers = {'Content-Type': 'application/json'}
 payload = {'location': 'BANG'}
@@ -29,7 +29,7 @@ img = cv2.imread("test1.jpg")
 #cv2.imshow("Original Image",img)
 #cv2.waitKey(0)
 #cv2.destroyAllWindows()
-print "displayed"
+print("displayed")
 # Display image
 
 
@@ -103,7 +103,7 @@ dilated_image = cv2.dilate(canny_image,kernel,iterations=1)
 # Displaying Image
 
 # Finding Contours in the image based on edges
-contours, hierarchy = cv2.findContours(dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+contours, hierarchy, _ = cv2.findContours(dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 contours= sorted(contours, key = cv2.contourArea, reverse = True)[:10]
 # Sort the contours based on area ,so that the number plate will be in top 10 contours
 screenCnt = None
@@ -148,12 +148,12 @@ cv2.imshow("Enhanced Number Plate",new_image)
 cv2.waitKey(0)
 # Display image
 
-print 'post api call'
+print("post api call")
 r = requests.post(server + '/ocr', data = json.dumps(payload), headers = headers)
 if r.status_code != 200:
-    print "Failed"
+    print("Failed")
     sys.exit(0)
 else:
-    print "success"
+    print("success")
 # Wait for a keystroke from the user
 
