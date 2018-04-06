@@ -1,7 +1,7 @@
 <div class="topnav">
 
   <img style="margin-left: 40px; margin-top: 5px" src="images/1.png" height="60px" width="60px">
-  
+
   <a ng-show="check()" href ng-click = "logout()"><br>LOGOUT</a>
 
 
@@ -13,9 +13,9 @@
 
 <div style="width: 100%;">
    <div style="float:left; width: 50%">
-   	<h1>This is a page where <br>you can track your vehicle details!</h1> 
+   	<h1>This is a page where <br>you can track your vehicle details!</h1>
    </div>
-   
+
 
 
    <div style="float:right; background:transparent; width: 50%;">
@@ -46,8 +46,11 @@
         <label style="font-family: sans-serif"><b>Driving License no.</b></label>
         <input type="text" name="dlno" ng-model="dlno" required><br>
 
+        <label style="font-family: sans-serif"><b>Vehicle number.</b></label>
+        <input type="text" name="dlno" ng-model="regno" required><br>
+
         <label style="font-family: sans-serif"><b>ID Image</b></label>
-        <input type="file" name="pic">        
+        <input type="file" name="pic">
 
         <div class="form-actions">
             <button type="submit" class="loginbtn">SIGN UP</button>
@@ -59,5 +62,5 @@
      </form>
    </div>
 </div>
-	
+
 <div style="clear:both"></div>

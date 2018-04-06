@@ -57,7 +57,8 @@ app.controller('registerController', function($scope, $location, $http, $window)
         "mobile": $scope.mobile,
         "username": $scope.username,
         "password": $scope.password,
-        "dlno": $scope.dlno
+        "dlno": $scope.dlno,
+        "regno": $scope.regno
       }
     }).then(function(data) {
       if(data.data.success) {
@@ -87,6 +88,7 @@ app.controller('transactionsController', function($http, $scope, $window){
   $scope.start_date = '';
   $scope.end_date = '';
   $scope.isData = false;
+  var username = $window.localStorage["value"];
   $scope.get_transactions = function(){
     var date = new Date($scope.start_date);
     var start = date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString() + '-' + date.getDate().toString() + ' ' + date.getHours().toString() + ':' + date.getMinutes().toString() + ':' + date.getSeconds().toString();
@@ -97,7 +99,9 @@ app.controller('transactionsController', function($http, $scope, $window){
       url: '/transactions',
       method: 'post',
       data: {start: start,
-            end: end}
+            end: end,
+            userid : username 
+          }
     }).then(function(data){
         $scope.details = data.data;
         if($scope.details.length)
