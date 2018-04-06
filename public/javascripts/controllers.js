@@ -23,7 +23,8 @@ app.controller('loginController', function($scope, $location, $http, $window) {
       }
     }).then(function(data) {
       if(data.data.success) {
-        $location.path('/user');
+        $window.localStorage["value"] = $scope.username;
+        $location.path('/dashboard');
       }
       else {
         alert(data.data.message);
@@ -68,5 +69,42 @@ app.controller('registerController', function($scope, $location, $http, $window)
         location.reload();
       }
     }, function(err){})
+  }
+});
+
+app.controller('dashboardController', function($http, $scope, $window){
+  $http({
+    url: '/dashboard',
+    method: 'post',
+    data: {username: $window.localStorage.value}
+  }).then(function(data){
+      $scope.details = data.data[0];
+      console.log($scope.details);
+  }, function(err){});
+});
+
+app.controller('transactionsController', function($http, $scope, $window){
+  $scope.start_date = '';
+  $scope.end_date = '';
+  $scope.isData = false;
+  $scope.get_transactions = function(){
+    var date = new Date($scope.start_date);
+    var start = date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString() + '-' + date.getDate().toString() + ' ' + date.getHours().toString() + ':' + date.getMinutes().toString() + ':' + date.getSeconds().toString();
+    date = new Date($scope.end_date);
+    var end = date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString() + '-' + date.getDate().toString() + ' ' + date.getHours().toString() + ':' + date.getMinutes().toString() + ':' + date.getSeconds().toString();
+    console.log(start, end);
+    $http({
+      url: '/transactions',
+      method: 'post',
+      data: {start: start,
+            end: end}
+    }).then(function(data){
+        $scope.details = data.data;
+        if($scope.details.length)
+          $scope.isData = true;
+        else {
+          $scope.isData = false;
+        }
+    }, function(err){});
   }
 });

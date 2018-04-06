@@ -1,0 +1,24 @@
+<div class="topnav">
+
+  <img style="margin-left: 40px; margin-top: 5px" src="images/1.png" height="60px" width="60px">
+  
+  <a style="margin-top: 5px" ng-show="check()" href ng-click = "logout()"><br>LOGOUT</a>
+
+
+  <a style="margin-right: 750px; position: absolute" href="#/login">&nbsp;&nbsp;&nbsp;AN E-TOLL SYSTEM</a>
+
+</div>
+
+<div class = 'container'>
+  <div class="row">
+    <div class="col-md-4">
+      <strong>Name: </strong>{{details.username}}
+    </div>
+    <div class="col-md-4 offset-md-4">
+      <strong>Registration Number: </strong>{{details.dlno}}
+    </div>
+    <div class="col-md-4">
+      <a href="#transactions"><button type="button" name="transactions">Transactions</button></a>
+    </div>
+  </div>
+</div>

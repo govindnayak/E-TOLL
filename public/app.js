@@ -10,11 +10,14 @@ app.config(function($routeProvider) {
     templateUrl: 'views/register.html',
     controller: 'registerController'
   })
-  .when('/user', {
-    templateUrl: 'views/user.html',
-    controller: 'homeController'
+  .when('/dashboard', {
+    templateUrl: 'views/dashboard.html',
+    controller: 'dashboardController'
   })
-
+  .when('/transactions', {
+    templateUrl: 'views/transactions.html',
+    controller: 'transactionsController'
+  })
   .otherwise({
     redirectTo: '/login'
   })

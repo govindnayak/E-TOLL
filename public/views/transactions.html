@@ -1,0 +1,47 @@
+<div class="topnav">
+
+  <img style="margin-left: 40px; margin-top: 5px" src="images/1.png" height="60px" width="60px">
+  
+  <a style="margin-top: 5px" ng-show="check()" href ng-click = "logout()"><br>LOGOUT</a>
+
+
+  <a style="margin-right: 750px; position: absolute" href="#/login">&nbsp;&nbsp;&nbsp;AN E-TOLL SYSTEM</a>
+
+</div>
+
+<form class="container" ng-submit = 'get_transactions()' method="post">
+  <div class="row">
+    <div class="col">
+      <label for="start_date">Start Date:</label>
+      <input type="date" class="form-control" name = 'start_date' ng-model = 'start_date'>
+    </div>
+    <div class="col">
+      <label for="end_date">End Date:</label>
+      <input type="date" class="form-control" name = 'end_date' ng-model = 'end_date'>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4 offset-md-8">
+      <button type="submit" class="btn btn-primary float-right" style="width: 50%">Submit</button>
+    </div>
+  </div>
+</form>
+<table class="table" ng-show = 'isData'>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Starting Point</th>
+      <th scope="col">End Point</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat = 'x in details'>
+      <th scope="row">{{$index + 1}}</th>
+      <td>{{x.fname + ' ' + x.lname}}</td>
+      <td>{{x.start}}</td>
+      <td>{{x.end}}</td>
+    </tr>
+  </tbody>
+</table>
