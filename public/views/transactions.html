@@ -5,14 +5,14 @@
 </div>
 
 
-<form class="container" ng-submit = 'get_transactions()' method="post">
+<form class="wrapper" ng-submit = 'get_transactions()' method="post">
   <div class="row">
     <div class="col">
-      <label for="start_date">Start Date:</label>
+      <label for="start_date"><b>Start Date:</b></label>
       <input type="date" class="form-control" name = 'start_date' ng-model = 'start_date'>
     </div>
     <div class="col">
-      <label for="end_date">End Date:</label>
+      <label for="end_date"><b>End Date:</b></label>
       <input type="date" class="form-control" name = 'end_date' ng-model = 'end_date'>
     </div>
   </div>
@@ -23,6 +23,7 @@
     </div>
   </div>
 </form>
+<br>
 <table class="table" ng-show = 'isData'>
   <thead class="thead-dark">
     <tr>
@@ -30,6 +31,8 @@
       <th scope="col">Name</th>
       <th scope="col">Starting Point</th>
       <th scope="col">End Point</th>
+      <th scope="col">Cost</th>
+
     </tr>
   </thead>
   <tbody>
@@ -38,6 +41,19 @@
       <td>{{x.fname + ' ' + x.lname}}</td>
       <td>{{x.start}}</td>
       <td>{{x.end}}</td>
+      <td>{{x.cost}}</td>
+
     </tr>
   </tbody>
 </table>
+
+
+<style>
+  
+  .wrapper{
+    margin-top: 100px;
+    margin-left: 150px;
+    margin-right: 100px;
+  }
+
+</style>

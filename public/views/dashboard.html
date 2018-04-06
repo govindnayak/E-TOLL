@@ -5,16 +5,27 @@
 </div>
 
 
-<div class = 'container'>
-  <div class="row">
-    <div class="col-md-4">
-      <strong>Name: </strong>{{details.username}}
-    </div>
-    <div class="col-md-4 offset-md-4">
-      <strong>Registration Number: </strong>{{details.dlno}}
-    </div>
-    <div class="col-md-4">
-      <a href="#transactions"><button type="button" name="transactions">Transactions</button></a>
-    </div>
-  </div>
+<div class = 'wrapper'>
+  
+      <h3><strong>Name: </strong>&nbsp;&nbsp;{{details.username}}
+      <br><br>
+      <strong>Registration Number:</strong>&nbsp;&nbsp;{{details.dlno}}
+      
+      <br><br><br>
+   
+      <a href="#transactions"><button style="width: 200px; margin-left: 150px" class="btn btn-lg btn-primary btn-block" type="button" name="transactions">Transactions</button></a>
+    
+ 
 </div>
+
+
+<style>
+  
+  .wrapper{
+    margin-top: 130px;
+    margin-left: 350px;
+    margin-right: 100px;
+
+
+  }
+</style>
